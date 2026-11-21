@@ -50,7 +50,6 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "rest_framework",
-    "drf_spectacular",
     "core",
 ]
 
@@ -60,7 +59,6 @@ INSTALLED_APPS = [
 # ============================================================
 
 REST_FRAMEWORK: dict[str, Any] = {
-    "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
 
     "DEFAULT_PARSER_CLASSES": [
         "rest_framework.parsers.JSONParser",
