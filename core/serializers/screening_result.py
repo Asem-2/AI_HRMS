@@ -1,8 +1,5 @@
-
 from typing import Any
 
-from drf_spectacular.types import OpenApiTypes
-from drf_spectacular.utils import extend_schema_field
 from rest_framework import serializers
 
 from ..models import ScreeningResult
@@ -23,7 +20,6 @@ class ScreeningResultSerializer(
 
     raw_report = serializers.SerializerMethodField()
 
-    @extend_schema_field(OpenApiTypes.OBJECT)
     def get_raw_report(
         self,
         obj: ScreeningResult,
