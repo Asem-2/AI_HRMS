@@ -1,46 +1,45 @@
-
 from django.urls import path
 
-from core.views.candidate import CandidateCreateAPIView
-from core.views.department import DepartmentCreateAPIView
+from core.views.candidate import create_candidate
+from core.views.department import create_department
 from core.views.interview_question_set import (
-    InterviewQuestionSetDetailAPIView,
+    interview_question_set_detail,
 )
-from core.views.job_position import JobPositionCreateAPIView
-from core.views.resume import ResumeUploadAPIView
-from core.views.screening_result import ScreeningResultDetailAPIView
+from core.views.job_position import create_job_position
+from core.views.resume import upload_resume
+from core.views.screening_result import screening_result_detail
 
 app_name = "core_api"
 
 urlpatterns = [
     path(
         "departments/",
-        DepartmentCreateAPIView.as_view(),
+        create_department,
         name="department-create",
     ),
     path(
         "job-positions/",
-        JobPositionCreateAPIView.as_view(),
+        create_job_position,
         name="job-position-create",
     ),
     path(
         "candidates/",
-        CandidateCreateAPIView.as_view(),
+        create_candidate,
         name="candidate-create",
     ),
     path(
         "resumes/",
-        ResumeUploadAPIView.as_view(),
+        upload_resume,
         name="resume-upload",
     ),
     path(
         "screening-results/<int:pk>/",
-        ScreeningResultDetailAPIView.as_view(),
+        screening_result_detail,
         name="screening-result-detail",
     ),
     path(
         "interview-question-sets/<int:pk>/",
-        InterviewQuestionSetDetailAPIView.as_view(),
+        interview_question_set_detail,
         name="interview-question-set-detail",
     ),
 ]
